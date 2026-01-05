@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1000" height="800" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <style>
+            .axis { stroke: black; stroke-width: 2; }
+            .grid { stroke: lightgray; stroke-width: 0.5; }
+            .point-cs { fill: blue; opacity: 0.5; }
+            .point-cb { fill: red; opacity: 0.5; }
+            .sat-curve { stroke: black; stroke-width: 2; fill: none; }
+            .label { font-family: Arial, sans-serif; font-size: 12px; }
+            .title { font-family: Arial, sans-serif; font-size: 18px; font-weight: bold; }
+            .legend { font-family: Arial, sans-serif; font-size: 11px; }
+        </style>
+    </defs>
+
+    <rect width="1000" height="800" fill="white"/>
+
+    <text x="500.0" y="30" text-anchor="middle" class="title">
+        DO vs Temperature (with Saturation Curve)
+    </text>
+
+    <!-- Grid -->
+    <line x1="80" y1="720.0" x2="960" y2="720.0" class="grid"/>
+    <text x="70" y="724.0" text-anchor="end" class="label">0</text>
+    <line x1="80" y1="632.0" x2="960" y2="632.0" class="grid"/>
+    <text x="70" y="636.0" text-anchor="end" class="label">2</text>
+    <line x1="80" y1="544.0" x2="960" y2="544.0" class="grid"/>
+    <text x="70" y="548.0" text-anchor="end" class="label">4</text>
+    <line x1="80" y1="456.0" x2="960" y2="456.0" class="grid"/>
+    <text x="70" y="460.0" text-anchor="end" class="label">6</text>
+    <line x1="80" y1="368.0" x2="960" y2="368.0" class="grid"/>
+    <text x="70" y="372.0" text-anchor="end" class="label">8</text>
+    <line x1="80" y1="280.0" x2="960" y2="280.0" class="grid"/>
+    <text x="70" y="284.0" text-anchor="end" class="label">10</text>
+    <line x1="80" y1="192.0" x2="960" y2="192.0" class="grid"/>
+    <text x="70" y="196.0" text-anchor="end" class="label">12</text>
+    <line x1="80" y1="104.0" x2="960" y2="104.0" class="grid"/>
+    <text x="70" y="108.0" text-anchor="end" class="label">14</text>
+    <line x1="80.0" y1="60" x2="80.0" y2="720" class="grid"/>
+    <text x="80.0" y="740" text-anchor="middle" class="label">0</text>
+    <line x1="226.66666666666666" y1="60" x2="226.66666666666666" y2="720" class="grid"/>
+    <text x="226.66666666666666" y="740" text-anchor="middle" class="label">5</text>
+    <line x1="373.3333333333333" y1="60" x2="373.3333333333333" y2="720" class="grid"/>
+    <text x="373.3333333333333" y="740" text-anchor="middle" class="label">10</text>
+    <line x1="520.0" y1="60" x2="520.0" y2="720" class="grid"/>
+    <text x="520.0" y="740" text-anchor="middle" class="label">15</text>
+    <line x1="666.6666666666666" y1="60" x2="666.6666666666666" y2="720" class="grid"/>
+    <text x="666.6666666666666" y="740" text-anchor="middle" class="label">20</text>
+    <line x1="813.3333333333334" y1="60" x2="813.3333333333334" y2="720" class="grid"/>
+    <text x="813.3333333333334" y="740" text-anchor="middle" class="label">25</text>
+    <line x1="960.0" y1="60" x2="960.0" y2="720" class="grid"/>
+    <text x="960.0" y="740" text-anchor="middle" class="label">30</text>
+
+    <line x1="80" y1="720"
+          x2="960" y2="720" class="axis"/>
+    <text x="500.0" y="780" text-anchor="middle" class="label" style="font-size: 14px;">
+        Temperature (°C)
+    </text>
+
+    <line x1="80" y1="60"
+          x2="80" y2="720" class="axis"/>
+    <text x="30" y="400.0" text-anchor="middle" class="label" style="font-size: 14px;"
+          transform="rotate(-90, 30, 400.0)">
+        DO (mg/L)
+    </text>
+
+    <!-- Saturation curve -->
+    <path d="M 80.0,77.60000000000002 L 109.33333333333333,85.51999999999998 L 138.66666666666666,93.43999999999994 L 168.0,101.36000000000001 L 197.33333333333331,109.28000000000009 L 226.66666666666666,117.20000000000005 L 256.0,125.12 L 285.33333333333337,133.03999999999996 L 314.66666666666663,140.96000000000004 L 344.0,148.88 L 373.3333333333333,156.79999999999995 L 402.66666666666663,164.72000000000003 L 432.0,172.6400000000001 L 461.33333333333337,180.55999999999995 L 490.6666666666667,188.48000000000002 L 520.0,196.39999999999998 L 549.3333333333333,204.32000000000005 L 578.6666666666666,212.24 L 608.0,220.16000000000003 L 637.3333333333333,228.08000000000004 L 666.6666666666666,236.00000000000006 L 696.0,243.91999999999996 L 725.3333333333333,251.83999999999997 L 754.6666666666667,259.76 L 784.0,267.68000000000006 L 813.3333333333334,275.6 L 842.6666666666667,283.52 L 872.0,291.44 L 901.3333333333334,299.36000000000007 L 930.6666666666666,307.28000000000003 L 960.0,315.20000000000005" class="sat-curve"/>
+    <circle cx="232.15010205366124" cy="203.42121775101793" r="3" class="point-cs"/>
+    <circle cx="244.26487675054807" cy="203.42121775101793" r="3" class="point-cb"/>
+    <circle cx="238.06859673079177" cy="201.57032172459833" r="3" class="point-cs"/>
+    <circle cx="238.75440151128893" cy="201.57032172459833" r="3" class="point-cb"/>
+    <circle cx="246.0744128786086" cy="199.18066483156417" r="3" class="point-cs"/>
+    <circle cx="234.24030159821484" cy="199.18066483156417" r="3" class="point-cb"/>
+    <circle cx="256.1082782353419" cy="196.37077686709245" r="3" class="point-cs"/>
+    <circle cx="230.75599782773767" cy="196.37077686709245" r="3" class="point-cb"/>
+    <circle cx="268.0959055724311" cy="193.2837416755067" r="3" class="point-cs"/>
+    <circle cx="228.3272867659234" cy="193.2837416755067" r="3" class="point-cb"/>
+    <circle cx="281.9485426911741" cy="190.08252322453768" r="3" class="point-cs"/>
+    <circle cx="226.9721497397425" cy="190.08252322453768" r="3" class="point-cb"/>
+    <circle cx="297.563629512955" cy="186.94461749566267" r="3" class="point-cs"/>
+    <circle cx="226.70061970961603" cy="186.94461749566267" r="3" class="point-cb"/>
+    <circle cx="314.8255573981835" cy="184.05619221031577" r="3" class="point-cs"/>
+    <circle cx="227.51470698888704" cy="184.05619221031577" r="3" class="point-cb"/>
+    <circle cx="333.6065250722146" cy="181.6058921627814" r="3" class="point-cs"/>
+    <circle cx="229.40838436016395" cy="181.6058921627814" r="3" class="point-cb"/>
+    <circle cx="353.76748482127215" cy="179.778498393086" r="3" class="point-cs"/>
+    <circle cx="232.3676316987292" cy="179.778498393086" r="3" class="point-cb"/>
+    <circle cx="375.1591719530733" cy="178.74863429367917" r="3" class="point-cs"/>
+    <circle cx="236.37053977263764" cy="178.74863429367917" r="3" class="point-cb"/>
+    <circle cx="397.6232099003871" cy="178.67471085444117" r="3" class="point-cs"/>
+    <circle cx="241.3874724510043" cy="178.67471085444117" r="3" class="point-cb"/>
+    <circle cx="420.99328278572676" cy="179.69329663418307" r="3" class="point-cs"/>
+    <circle cx="247.3812861195489" cy="179.69329663418307" r="3" class="point-cb"/>
+    <circle cx="445.0963667659185" cy="181.91408589554703" r="3" class="point-cs"/>
+    <circle cx="254.3076046789204" cy="181.91408589554703" r="3" class="point-cb"/>
+    <circle cx="469.7540110400999" cy="185.4156210102617" r="3" class="point-cs"/>
+    <circle cx="262.1151480898109" cy="185.4156210102617" r="3" class="point-cb"/>
+    <circle cx="494.7836590370157" cy="190.24190324272763" r="3" class="point-cs"/>
+    <circle cx="270.74611203242506" cy="190.24190324272763" r="3" class="point-cb"/>
+    <circle cx="520.0" cy="196.39999999999998" r="3" class="point-cs"/>
+    <circle cx="280.1365958694406" cy="196.39999999999998" r="3" class="point-cb"/>
+    <circle cx="545.2163409629843" cy="203.85872736273916" r="3" class="point-cs"/>
+    <circle cx="290.2170757439694" cy="203.85872736273916" r="3" class="point-cb"/>
+    <circle cx="570.2459889599002" cy="212.5484550486077" r="3" class="point-cs"/>
+    <circle cx="300.91291930987006" cy="212.5484550486077" r="3" class="point-cb"/>
+    <circle cx="594.9036332340816" cy="222.36204784195115" r="3" class="point-cs"/>
+    <circle cx="312.14493828352687" cy="222.36204784195115" r="3" class="point-cb"/>
+    <circle cx="619.0067172142732" cy="233.15692392989052" r="3" class="point-cs"/>
+    <circle cx="323.8299747261967" cy="233.15692392989052" r="3" class="point-cb"/>
+    <circle cx="642.376790099613" cy="244.75817750823217" r="3" class="point-cs"/>
+    <circle cx="335.8815167162926" cy="244.75817750823217" r="3" class="point-cb"/>
+    <circle cx="664.8408280469267" cy="256.96268143901955" r="3" class="point-cs"/>
+    <circle cx="348.21033885338335" cy="256.96268143901955" r="3" class="point-cb"/>
+    <circle cx="686.2325151787279" cy="269.54405658959905" r="3" class="point-cs"/>
+    <circle cx="360.72516285184116" cy="269.54405658959905" r="3" class="point-cb"/>
+    <circle cx="706.3934749277853" cy="282.25836862378554" r="3" class="point-cs"/>
+    <circle cx="373.3333333333333" cy="282.25836862378554" r="3" class="point-cb"/>
+    <circle cx="725.1744426018165" cy="294.85039121529667" r="3" class="point-cs"/>
+    <circle cx="385.9415038148255" cy="313.76264693753495" r="3" class="point-cb"/>
+    <circle cx="742.4363704870449" cy="307.0602575586668" r="3" class="point-cs"/>
+    <circle cx="398.45632781328334" cy="344.7447492785918" r="3" class="point-cb"/>
+    <circle cx="758.0514573088259" cy="318.6303101713036" r="3" class="point-cs"/>
+    <circle cx="410.7851499503741" cy="374.8080350968648" r="3" class="point-cb"/>
+    <circle cx="771.9040944275688" cy="329.3119526663938" r="3" class="point-cs"/>
+    <circle cx="422.83669194046996" cy="403.5669905770987" r="3" class="point-cb"/>
+    <circle cx="783.891721764658" cy="338.8723066200078" r="3" class="point-cs"/>
+    <circle cx="434.5217283831398" cy="430.65489919471753" r="3" class="point-cb"/>
+    <circle cx="793.9255871213913" cy="347.1004818771155" r="3" class="point-cs"/>
+    <circle cx="445.7537473567967" cy="455.7311029123105" r="3" class="point-cb"/>
+    <circle cx="801.9314032692082" cy="353.8132794899708" r="3" class="point-cs"/>
+    <circle cx="456.44959092269727" cy="478.48766587401667" r="3" class="point-cb"/>
+    <circle cx="807.8498979463387" cy="358.86016264204085" r="3" class="point-cs"/>
+    <circle cx="466.53007079722596" cy="498.65526883787993" r="3" class="point-cb"/>
+    <circle cx="811.6372526888927" cy="362.12735190819706" r="3" class="point-cs"/>
+    <circle cx="475.9205546342416" cy="516.0081838595594" r="3" class="point-cb"/>
+    <circle cx="813.2654272474346" cy="363.54092642130547" r="3" class="point-cs"/>
+    <circle cx="484.5515185768558" cy="530.3682042865892" r="3" class="point-cb"/>
+    <circle cx="812.7223671871817" cy="363.0688412161078" r="3" class="point-cs"/>
+    <circle cx="492.35906198774626" cy="541.6074341977272" r="3" class="point-cb"/>
+    <circle cx="810.01209313482" cy="360.7218023600327" r="3" class="point-cs"/>
+    <circle cx="499.28538054711777" cy="549.6498731807094" r="3" class="point-cb"/>
+    <circle cx="805.1546710111913" cy="356.5529745361475" r="3" class="point-cs"/>
+    <circle cx="505.27919421566236" cy="554.471765859641" r="3" class="point-cb"/>
+    <circle cx="798.1860634702371" cy="350.6565295439641" r="3" class="point-cs"/>
+    <circle cx="510.296126894029" cy="556.1007198850076" r="3" class="point-cb"/>
+    <circle cx="789.1578636440887" cy="343.16507773538683" r="3" class="point-cs"/>
+    <circle cx="514.2990349679374" cy="554.613630187293" r="3" class="point-cb"/>
+    <circle cx="778.1369131655705" cy="334.2460567192317" r="3" class="point-cs"/>
+    <circle cx="517.2582823065027" cy="550.1334801789858" r="3" class="point-cb"/>
+    <circle cx="765.2048072961336" cy="324.09718179838853" r="3" class="point-cs"/>
+    <circle cx="519.1519596777796" cy="542.8251213150579" r="3" class="point-cb"/>
+    <circle cx="750.4572908230897" cy="312.9410896633322" r="3" class="point-cs"/>
+    <circle cx="519.9660469570506" cy="532.8901600989082" r="3" class="point-cb"/>
+    <circle cx="734.0035491987029" cy="301.01933005941976" r="3" class="point-cs"/>
+    <circle cx="519.6945169269242" cy="520.5611054498061" r="3" class="point-cb"/>
+    <circle cx="715.9654001693032" cy="288.5858787924887" r="3" class="point-cs"/>
+    <circle cx="518.3393799007433" cy="506.09494864360363" r="3" class="point-cb"/>
+    <circle cx="696.4763918793107" cy="275.90035899112524" r="3" class="point-cs"/>
+    <circle cx="515.910668838929" cy="489.7663622495187" r="3" class="point-cb"/>
+    <circle cx="675.6808141275004" cy="263.22116560835826" r="3" class="point-cs"/>
+    <circle cx="512.4263650684518" cy="471.860713211036" r="3" class="point-cb"/>
+    <circle cx="653.7326300958146" cy="250.79869048622174" r="3" class="point-cs"/>
+    <circle cx="507.9122651553777" cy="452.66708821928836" r="3" class="point-cb"/>
+    <circle cx="630.7943364598298" cy="238.86884185826375" r="3" class="point-cs"/>
+    <circle cx="502.40178991611856" cy="432.4715267324416" r="3" class="point-cb"/>
+    <circle cx="607.035760320224" cy="227.6470430331281" r="3" class="point-cs"/>
+    <circle cx="495.9357369814001" cy="411.55064850522825" r="3" class="point-cb"/>
+    <circle cx="582.6328018623402" cy="217.32288045989378" r="3" class="point-cs"/>
+    <circle cx="488.56197874487816" cy="390.16584857721097" r="3" class="point-cb"/>
+    <circle cx="557.7661320527571" cy="208.05555185561224" r="3" class="point-cs"/>
+    <circle cx="480.3351079326848" cy="368.5582137546395" r="3" class="point-cb"/>
+    <circle cx="532.6198550146623" cy="199.9702411568361" r="3" class="point-cs"/>
+    <circle cx="471.3160334179849" cy="346.9442912838134" r="3" class="point-cb"/>
+    <circle cx="507.3801449853378" cy="193.15551944891843" r="3" class="point-cs"/>
+    <circle cx="461.57152927298864" cy="325.5128133584014" r="3" class="point-cb"/>
+    <circle cx="482.233867947243" cy="187.66184054712346" r="3" class="point-cs"/>
+    <circle cx="451.1737403970836" cy="304.42245114274874" r="3" class="point-cb"/>
+    <circle cx="457.3671981376599" cy="183.50116745423009" r="3" class="point-cs"/>
+    <circle cx="440.19964838124065" cy="283.80064002609095" r="3" class="point-cb"/>
+    <circle cx="432.96423967977626" cy="180.64773246020718" r="3" class="point-cs"/>
+    <circle cx="428.7305015632482" cy="263.74348480507945" r="3" class="point-cb"/>
+    <circle cx="409.2056635401704" cy="179.03990016995579" r="3" class="point-cs"/>
+    <circle cx="416.85121349344536" cy="244.31672041012376" r="3" class="point-cb"/>
+    <circle cx="386.26736990418533" cy="178.58307023448197" r="3" class="point-cs"/>
+    <circle cx="404.6497342645034" cy="225.5576716312371" r="3" class="point-cb"/>
+    <circle cx="364.3191858724996" cy="179.15352597950812" r="3" class="point-cs"/>
+    <circle cx="392.2163993597119" cy="207.47812501907595" r="3" class="point-cb"/>
+    <circle cx="343.52360812068935" cy="180.60310737629754" r="3" class="point-cs"/>
+    <circle cx="379.6432608406645" cy="190.0679986372943" r="3" class="point-cb"/>
+    <circle cx="324.03459983069695" cy="182.76456270106496" r="3" class="point-cs"/>
+    <circle cx="367.0234058260022" cy="182.76456270106496" r="3" class="point-cb"/>
+    <circle cx="305.996450801297" cy="185.45741349212017" r="3" class="point-cs"/>
+    <circle cx="354.4502673069548" cy="185.45741349212017" r="3" class="point-cb"/>
+    <circle cx="289.5427091769104" cy="188.49415261886384" r="3" class="point-cs"/>
+    <circle cx="342.01693240216326" cy="188.49415261886384" r="3" class="point-cb"/>
+    <circle cx="274.79519270386663" cy="191.6865858584764" r="3" class="point-cs"/>
+    <circle cx="329.81545317322144" cy="191.6865858584764" r="3" class="point-cb"/>
+    <circle cx="261.8630868344295" cy="194.8521236098237" r="3" class="point-cs"/>
+    <circle cx="317.93616510341855" cy="194.8521236098237" r="3" class="point-cb"/>
+    <circle cx="250.84213635591126" cy="197.8198313675788" r="3" class="point-cs"/>
+    <circle cx="306.467018285426" cy="197.8198313675788" r="3" class="point-cb"/>
+    <circle cx="241.81393652976297" cy="200.43605527003604" r="3" class="point-cs"/>
+    <circle cx="295.4929262695831" cy="200.43605527003604" r="3" class="point-cb"/>
+    <circle cx="234.84532898880872" cy="202.56945219010413" r="3" class="point-cs"/>
+    <circle cx="285.095137393678" cy="202.56945219010413" r="3" class="point-cb"/>
+    <circle cx="229.98790686518015" cy="204.11527206722985" r="3" class="point-cs"/>
+    <circle cx="275.3506332486818" cy="204.11527206722985" r="3" class="point-cb"/>
+    <circle cx="227.2776328128183" cy="204.99876293502973" r="3" class="point-cs"/>
+    <circle cx="266.33155873398186" cy="204.99876293502973" r="3" class="point-cb"/>
+    <circle cx="226.73457275256536" cy="205.17759570769078" r="3" class="point-cs"/>
+    <circle cx="258.1046879217886" cy="205.17759570769078" r="3" class="point-cb"/>
+    <circle cx="228.36274731110743" cy="204.64323545619493" r="3" class="point-cs"/>
+    <circle cx="250.73092968526666" cy="204.64323545619493" r="3" class="point-cb"/>
+
+    <rect x="770" y="85" width="210" height="85"
+          fill="white" stroke="black" stroke-width="1"/>
+
+    <circle cx="790" cy="100" r="4" class="point-cs"/>
+    <text x="805" y="104" class="legend">Surface DO (Cs)</text>
+
+    <circle cx="790" cy="125" r="4" class="point-cb"/>
+    <text x="805" y="129" class="legend">Bottom DO (Cb)</text>
+
+    <line x1="780" y1="150" x2="810" y2="150" class="sat-curve"/>
+    <text x="820" y="154" class="legend">Saturation Curve</text>
+</svg>

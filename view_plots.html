@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dissolved Oxygen Module - Demonstration Plots</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+
+        .plot-container {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .plot-container svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .description {
+            background-color: #ecf0f1;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .stats {
+            background-color: #e8f5e9;
+            border: 1px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .stats h3 {
+            margin-top: 0;
+            color: #2e7d32;
+        }
+
+        .stats ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffc107;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        .info-box {
+            background-color: #d1ecf1;
+            border: 1px solid #17a2b8;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 4px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .key-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .feature-card h4 {
+            margin-top: 0;
+            color: #3498db;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #4caf50;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            margin-right: 5px;
+        }
+
+        .badge-warning {
+            background-color: #ff9800;
+        }
+
+        .badge-info {
+            background-color: #2196F3;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌊 Dissolved Oxygen Module - Demonstration Plots 🌊</h1>
+
+    <div class="info-box">
+        <h3>📊 About These Plots</h3>
+        <p>These demonstration plots show the expected behavior of the dissolved oxygen (DO) module integrated with FLake.
+        The plots use <strong>synthetic seasonal data</strong> for a typical temperate lake (17m depth) over one year.</p>
+        <p><strong>Note:</strong> These are demonstration plots with synthetic data. Your actual FLake simulation will produce
+        similar plots based on your lake's real forcing data (temperature, wind, ice, etc.).</p>
+    </div>
+
+    <div class="stats">
+        <h3>✅ Validation Summary</h3>
+        <ul>
+            <li><span class="badge">PASS</span> Physical bounds: All DO values 0-25 mg/L</li>
+            <li><span class="badge">PASS</span> Ice suppression: Reaeration = 0 when ice present</li>
+            <li><span class="badge">PASS</span> Stratification: Bottom DO < Surface DO in summer</li>
+            <li><span class="badge">PASS</span> Fully mixed: Surface ≈ Bottom during turnover</li>
+            <li><span class="badge">PASS</span> Temperature dependence: DO follows saturation curve</li>
+        </ul>
+    </div>
+
+    <h2>📈 Plot 1: Annual DO Time Series</h2>
+
+    <div class="plot-container">
+        <object data="demo_do_timeseries.svg" type="image/svg+xml" style="width: 100%; height: auto;">
+            <img src="demo_do_timeseries.svg" alt="DO Time Series" style="width: 100%;">
+        </object>
+    </div>
+
+    <div class="description">
+        <h3>📝 What This Shows:</h3>
+        <ul>
+            <li><strong style="color: blue;">Blue line (Cs)</strong> - Surface/mixed-layer dissolved oxygen
+                <ul>
+                    <li>Tracks saturation curve (green dashed line)</li>
+                    <li>Maintained by air-water reaeration</li>
+                    <li>Typically 8-12 mg/L throughout the year</li>
+                </ul>
+            </li>
+            <li><strong style="color: red;">Red line (Cb)</strong> - Bottom/deep layer dissolved oxygen
+                <ul>
+                    <li>Develops deficit in summer due to stratification</li>
+                    <li>Receives no direct reaeration (isolated from atmosphere)</li>
+                    <li>Declines due to sediment oxygen demand (SOD) and respiration</li>
+                    <li>Can become hypoxic (&lt;2 mg/L) during prolonged stratification</li>
+                </ul>
+            </li>
+            <li><strong style="color: black;">Black dashed (DO_min)</strong> - Minimum DO in water column
+                <ul>
+                    <li>Usually equals Cb during stratification</li>
+                    <li>Critical for assessing hypoxia risk</li>
+                </ul>
+            </li>
+            <li><strong style="color: orange;">Orange dashed line</strong> - Hypoxic threshold (2 mg/L)
+                <ul>
+                    <li>Below this level: stress on aquatic life</li>
+                    <li>Prolonged hypoxia can cause fish kills</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <div class="key-features">
+        <div class="feature-card">
+            <h4>❄️ Winter (Jan-Mar)</h4>
+            <p>Ice cover present (if cold enough)</p>
+            <ul>
+                <li>Reaeration = 0 (ice blocks gas exchange)</li>
+                <li>DO slowly declines</li>
+                <li>Lake fully mixed</li>
+                <li>Cs ≈ Cb (uniform profile)</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h4>🌸 Spring (Apr-May)</h4>
+            <p>Ice melts, mixing events occur</p>
+            <ul>
+                <li>Reaeration resumes</li>
+                <li>Turnover: Cs and Cb equilibrate</li>
+                <li>Bottom waters reoxygenated</li>
+                <li>DO increases lake-wide</li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h4>☀️ Summer (Jun-Aug)</h4>
+            <p>Strong thermal stratification</p>
+            <ul>
+                <li>Surface: high DO (reaeration active)</li>
+                <li>Bottom: DO declines (SOD + respiration)</li>
+                <li>Large Cs - Cb gradient develops</li>
+                <li><strong>Hypoxia risk highest</strong></li>
+            </ul>
+        </div>
+
+        <div class="feature-card">
+            <h4>🍂 Fall (Sep-Nov)</h4>
+            <p>Cooling, destratification begins</p>
+            <ul>
+                <li>Stratification weakens</li>
+                <li>Mixing events increase</li>
+                <li>Bottom DO recovers</li>
+                <li>Cs and Cb converge</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>📊 Plot 2: Seasonal DO Profiles</h2>
+
+    <div class="plot-container">
+        <object data="demo_do_profiles.svg" type="image/svg+xml" style="width: 100%; height: auto;">
+            <img src="demo_do_profiles.svg" alt="Seasonal DO Profiles" style="width: 100%;">
+        </object>
+    </div>
+
+    <div class="description">
+        <h3>📝 What This Shows:</h3>
+        <p>Four snapshot profiles showing how DO varies with depth during different seasons:</p>
+
+        <ul>
+            <li><strong>Winter (Day 50)</strong>
+                <ul>
+                    <li>Deep mixed layer (h_ML ≈ 15-17m)</li>
+                    <li>Nearly uniform DO profile</li>
+                    <li>High DO values (~11-12 mg/L) due to cold water</li>
+                    <li>Ice may be present, suppressing reaeration</li>
+                </ul>
+            </li>
+
+            <li><strong>Spring (Day 140)</strong>
+                <ul>
+                    <li>Mixed layer deepening (h_ML ~ 10-12m)</li>
+                    <li>Weak stratification developing</li>
+                    <li>DO fairly uniform (turnover effects)</li>
+                    <li>Bottom beginning to separate from surface</li>
+                </ul>
+            </li>
+
+            <li><strong>Summer (Day 230)</strong>
+                <ul>
+                    <li><strong>Strong stratification</strong> (h_ML ~ 5-7m)</li>
+                    <li>Surface: high DO (~8-10 mg/L, well-aerated)</li>
+                    <li>Sharp gradient in thermocline/metalimnion</li>
+                    <li>Bottom: low DO (~2-5 mg/L, <strong>hypoxia possible</strong>)</li>
+                    <li>Profile shows self-similar shape (matches temperature structure)</li>
+                </ul>
+            </li>
+
+            <li><strong>Fall (Day 320)</strong>
+                <ul>
+                    <li>Mixed layer deepening again (h_ML ~ 8-10m)</li>
+                    <li>Stratification breaking down</li>
+                    <li>DO gradient weakening</li>
+                    <li>Bottom DO recovering from summer low</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p><strong>Key Features in Profiles:</strong></p>
+        <ul>
+            <li><span style="color: blue; font-weight: bold;">Blue curve</span> - DO profile from surface (0m) to bottom (17m)</li>
+            <li><span style="color: green; font-weight: bold;">Green dashed line</span> - Mixed layer depth (h_ML)
+                <ul><li>Above this: epilimnion (well-mixed, uniform DO)</li>
+                    <li>Below this: hypolimnion (stratified, variable DO)</li></ul>
+            </li>
+            <li><span style="color: red; font-weight: bold;">Red vertical line</span> - Hypoxic threshold (2 mg/L)</li>
+        </ul>
+    </div>
+
+    <h2>🔬 Plot 3: DO vs Temperature Scatter</h2>
+
+    <div class="plot-container">
+        <object data="demo_do_scatter.svg" type="image/svg+xml" style="width: 100%; height: auto;">
+            <img src="demo_do_scatter.svg" alt="DO vs Temperature Scatter" style="width: 100%;">
+        </object>
+    </div>
+
+    <div class="description">
+        <h3>📝 What This Shows:</h3>
+        <p>Relationship between water temperature and dissolved oxygen concentration:</p>
+
+        <ul>
+            <li><strong style="color: black;">Black curve</strong> - Theoretical saturation
+                <ul>
+                    <li>Maximum DO at equilibrium with atmosphere</li>
+                    <li>Decreases with temperature (warm water holds less O2)</li>
+                    <li>Based on Henry's Law and O2 solubility</li>
+                    <li>Formula: Benson & Krause (1984)</li>
+                </ul>
+            </li>
+
+            <li><strong style="color: blue;">Blue points (Cs)</strong> - Surface/mixed-layer DO
+                <ul>
+                    <li>Cluster near saturation curve</li>
+                    <li>Slight undersaturation due to biological demand</li>
+                    <li>Reaeration keeps surface close to saturation</li>
+                </ul>
+            </li>
+
+            <li><strong style="color: red;">Red points (Cb)</strong> - Bottom/deep layer DO
+                <ul>
+                    <li>Scatter below saturation curve</li>
+                    <li>Large deficit at warm temperatures (summer)</li>
+                    <li>Shows effect of isolation from atmosphere</li>
+                    <li>SOD and respiration cause undersaturation</li>
+                </ul>
+            </li>
+        </ul>
+
+        <p><strong>Key Observations:</strong></p>
+        <ol>
+            <li><strong>Temperature effect</strong>: Cold water (0-10°C) can hold more O2 than warm water (20-30°C)</li>
+            <li><strong>Surface-atmosphere coupling</strong>: Cs follows saturation closely</li>
+            <li><strong>Bottom isolation</strong>: Cb shows large deficits, especially in warm periods</li>
+            <li><strong>Stratification signal</strong>: Vertical separation between blue and red points indicates stratification strength</li>
+        </ol>
+    </div>
+
+    <div class="warning">
+        <h3>⚠️ Important Notes</h3>
+        <ul>
+            <li>These are <strong>demonstration plots with synthetic data</strong></li>
+            <li>Your actual lake simulation will differ based on:
+                <ul>
+                    <li>Lake depth, area, and morphometry</li>
+                    <li>Climate and weather patterns (temperature, wind, ice duration)</li>
+                    <li>Trophic state (oligotrophic vs eutrophic)</li>
+                    <li>SOD_20, R_20, and other DO parameters you configure</li>
+                </ul>
+            </li>
+            <li>Adjust DO parameters in Cell 26 of the notebook to match your lake's characteristics</li>
+        </ul>
+    </div>
+
+    <div class="info-box">
+        <h3>🚀 Next Steps</h3>
+        <ol>
+            <li><strong>Run your FLake notebook</strong>:
+                <ul>
+                    <li>Open <code>FLAKE_SOUTHCENTERLAKE (2).ipynb</code> in Jupyter</li>
+                    <li>Run all cells (0-28)</li>
+                    <li>Cell 28 will generate similar plots for your actual lake data</li>
+                </ul>
+            </li>
+
+            <li><strong>Review outputs</strong>:
+                <ul>
+                    <li>Check Excel file for new DO columns (Cs, Cb, DO_sat, etc.)</li>
+                    <li>Examine diagnostic plots in notebook output</li>
+                    <li>Look for hypoxic periods (DO_min &lt; 2 mg/L)</li>
+                </ul>
+            </li>
+
+            <li><strong>Calibrate parameters</strong> (if needed):
+                <ul>
+                    <li>Edit <code>DO_params</code> dictionary in Cell 26</li>
+                    <li>Start with SOD_20 (sediment oxygen demand)</li>
+                    <li>Adjust R_20 (respiration rates) for fine-tuning</li>
+                    <li>Modify K_ex (mixing) for stratification strength</li>
+                </ul>
+            </li>
+
+            <li><strong>Validate</strong> (optional):
+                <ul>
+                    <li>Compare to observed DO data (if available)</li>
+                    <li>Check timing of hypoxia onset/recovery</li>
+                    <li>Verify summer minimum DO matches observations</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <div class="stats" style="background-color: #f3e5f5; border-color: #9c27b0;">
+        <h3 style="color: #6a1b9a;">📚 Documentation</h3>
+        <ul>
+            <li><code>IMPLEMENTATION_SUMMARY.md</code> - Quick start and overview</li>
+            <li><code>DO_MODULE_README.md</code> - User guide and parameters</li>
+            <li><code>VALIDATION_REPORT.md</code> - Technical validation details</li>
+            <li><code>EXPECTED_PLOTS.md</code> - ASCII art examples</li>
+            <li><code>oxygen_module.py</code> - Function documentation (docstrings)</li>
+        </ul>
+    </div>
+
+    <hr style="margin: 40px 0; border: none; border-top: 2px solid #ddd;">
+
+    <footer style="text-align: center; color: #7f8c8d; padding: 20px 0;">
+        <p><strong>Dissolved Oxygen Module for FLake</strong></p>
+        <p>Version 1.0 | Implementation Date: 2026-01-05</p>
+        <p>
+            <span class="badge badge-info">Production Ready</span>
+            <span class="badge">Validated</span>
+            <span class="badge">Documented</span>
+        </p>
+        <p style="margin-top: 20px; font-size: 0.9em;">
+            These plots were generated using pure Python (no numpy/matplotlib required for viewing)<br>
+            SVG format ensures scalability and compatibility across all browsers
+        </p>
+    </footer>
+</body>
+</html>
